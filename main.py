@@ -79,6 +79,7 @@ def get_dogs(kind: DogType | None = None) -> List[Dog]:
 
 @app.post(path="/dog")
 def create_dog(dog: Dog) -> Dog:
+    """Create new dog and store it into storage."""
     if dog.pk in dogs_db:
         raise HTTPException(
             status_code=409,
@@ -90,11 +91,19 @@ def create_dog(dog: Dog) -> Dog:
 
 @app.get(path="/dog/{pk}")
 def get_dog_by_pk(pk: int) -> Dog:
+    """Return dog by pk if exists, else raise error with 409 status_code."""
     return _get_dog_by_pk(pk=pk)
 
 
 @app.patch(path="/dog/{pk}")
 def update_dog(pk: int, dog: Dog) -> Dog:
+    """Update dog with given primary key.
+    
+    If pk isn't equal to dog pk, raise error.
+    If pk isn't exist, raise error.
+    
+    Return dog if success.
+    """
     if pk != dog.pk:
         raise HTTPException(
             status_code=409,
