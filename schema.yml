@@ -112,7 +112,7 @@ paths:
           description: Validation Error
       summary: Get Dogs
     post:
-      operationId: add_dog_dog_post
+      operationId: create_dog_dog_post
       requestBody:
         content:
           application/json:
@@ -132,10 +132,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
-      summary: Add Dog
+      summary: Create Dog
   /dog/{pk}:
     get:
-      operationId: get_dog_dog__pk__get
+      operationId: get_dog_by_pk_dog__pk__get
       parameters:
       - in: path
         name: pk
@@ -156,7 +156,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
-      summary: Get Dog
+      summary: Get Dog By Pk
     patch:
       operationId: update_dog_dog__pk__patch
       parameters:

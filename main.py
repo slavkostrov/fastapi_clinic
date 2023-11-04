@@ -56,9 +56,6 @@ def _get_dog_by_pk(pk: int) -> Dog | None:
 )
 def root() -> Response:
     """Service root with empty json as response."""
-    import yaml
-    with open("schema.yml", "w") as fout:
-        yaml.dump(app.openapi(), fout)
     return JSONResponse(content={})
 
 
