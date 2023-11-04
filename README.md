@@ -1,6 +1,6 @@
 # fastapi_clinic
 
-Fastapi service with dogs database.
+Fastapi service with dogs database (demo available at https://fastapi-clinic-service-slavkostrov.onrender.com/).
 
 Simple app run snippet:
 
