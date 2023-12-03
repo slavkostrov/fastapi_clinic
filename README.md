@@ -16,5 +16,13 @@ There are several endpoints:
 
 Also documentation available at `/docs` endpoint.
 
+# Docker
+
+To run container execute command:
+
+```bash
+sudo docker run -p 5555:5555 slavkostrov/clinic-app:latest
+```
+
 Authors:
 - Kostrov Vyacheslav
