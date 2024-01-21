@@ -24,5 +24,13 @@ To run container execute command:
 sudo docker run -p 5555:5555 slavkostrov/clinic-app:latest
 ```
 
+# docker-compose
+
+Run command:
+
+```bash
+sudo BOT_TOKEN=<your_token> docker-compose up --build
+```
+
 Authors:
 - Kostrov Vyacheslav

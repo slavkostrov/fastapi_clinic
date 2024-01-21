@@ -7,4 +7,4 @@ RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY ./ /code/
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "5555"]
+CMD ["python", "bot.py"]
