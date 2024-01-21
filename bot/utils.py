@@ -1,5 +1,6 @@
+import typing as tp
 from functools import wraps
-
+from aiogram import types
 
 def check_int(value: str):
     try:
@@ -9,10 +10,12 @@ def check_int(value: str):
         return False
 
 
-def check_int_decorator(name: str):
-    def wrapper(func):
+def check_int_decorator(name: str) -> tp.Callable:
+
+    def wrapper(func: tp.Callable) -> tp.Callable:
+
         @wraps(func)
-        async def foo(message, *args, **kwargs):
+        async def foo(message: types.Message, *args, **kwargs) -> tp.Any:
             if not check_int(message.text):
                 await message.reply(f"Неправильный формат, {name} должен быть целым числом.")
                 return
@@ -22,3 +25,9 @@ def check_int_decorator(name: str):
         return foo
 
     return wrapper
+
+def get_markup_keybord(options: tp.List[str]) -> types.ReplyKeyboardMarkup:
+    """Создает клавиатуру на основе доступных опций."""
+    kb = [[types.KeyboardButton(text=option)] for option in options]
+    keyboard = types.ReplyKeyboardMarkup(keyboard=kb)
+    return keyboard 
